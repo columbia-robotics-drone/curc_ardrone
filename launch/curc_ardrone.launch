@@ -1,0 +1,12 @@
+<launch>
+	<node name="curc_state_estimation" pkg="curc_ardrone" type="curc_state_estimation">
+	</node>
+	<node name="drone_autopilot" pkg="curc_ardrone" type="drone_autopilot">
+	</node>
+	<node name="curc_gui" pkg="curc_ardrone" type="curc_gui">
+	</node>
+	<node name="curc_path_planner" pkg="curc_ardrone" type="curc_path_planner">
+	</node>
+	<node name="curc_tracker" pkg="curc_ardrone" type="curc_tracker">
+	</node>
+</launch>

@@ -123,9 +123,9 @@ set(STATE_ESTIMATION_SOURCE_FILES
 set(STATE_ESTIMATION_HEADER_FILES
 )
 
-add_executable(state_estimation ${STATE_ESTIMATION_SOURCE_FILES} ${STATE_ESTIMATION_HEADER_FILES})
-set_target_properties(state_estimation PROPERTIES COMPILE_FLAGS "-D_LINUX -D_REENTRANT -Wall") 
-target_link_libraries(state_estimation ${catkin_LIBRARIES})
+add_executable(curc_state_estimation ${STATE_ESTIMATION_SOURCE_FILES} ${STATE_ESTIMATION_HEADER_FILES})
+set_target_properties(curc_state_estimation PROPERTIES COMPILE_FLAGS "-D_LINUX -D_REENTRANT -Wall") 
+target_link_libraries(curc_state_estimation ${catkin_LIBRARIES})
 
 # ---------------- tracker ----------------
 set(TRACKER_SOURCE_FILES
@@ -135,8 +135,8 @@ set(TRACKER_SOURCE_FILES
 set(TRACKER_HEADER_FILES
 )
 
-add_executable(tracker ${TRACKER_SOURCE_FILES} ${TRACKER_HEADER_FILES})
-target_link_libraries(tracker ${catkin_LIBRARIES})
+add_executable(curc_tracker ${TRACKER_SOURCE_FILES} ${TRACKER_HEADER_FILES})
+target_link_libraries(curc_tracker ${catkin_LIBRARIES})
 
 # ---------------- path_planner ----------------
 set(PATH_PLANNER_SOURCE_FILES
@@ -146,8 +146,8 @@ set(PATH_PLANNER_SOURCE_FILES
 set(PATH_PLANNER_HEADER_FILES
 )
 
-add_executable(path_planner ${PATH_PLANNER_SOURCE_FILES} ${PATH_PLANNER_HEADER_FILES})
-target_link_libraries(path_planner ${catkin_LIBRARIES})
+add_executable(curc_path_planner ${PATH_PLANNER_SOURCE_FILES} ${PATH_PLANNER_HEADER_FILES})
+target_link_libraries(curc_path_planner ${catkin_LIBRARIES})
 
 
 # ---------------- autopilot ----------------
@@ -192,53 +192,5 @@ set(GUI_SOURCE_FILES
 set(GUI_HEADER_FILES
 )
 
-add_executable(gui ${GUI_SOURCE_FILES} ${GUI_HEADER_FILES})
-target_link_libraries(gui ${catkin_LIBRARIES})
-
-#############
-## Install ##
-#############
-
-# all install targets should use catkin DESTINATION variables
-# See http://ros.org/doc/api/catkin/html/adv_user_guide/variables.html
-
-## Mark executable scripts (Python etc.) for installation
-## in contrast to setup.py, you can choose the destination
-# install(PROGRAMS
-#   scripts/my_python_script
-#   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-# )
-
-## Mark executables and/or libraries for installation
-# install(TARGETS curc_ardrone curc_ardrone_node
-#   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-#   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-#   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-# )
-
-## Mark cpp header files for installation
-# install(DIRECTORY include/${PROJECT_NAME}/
-#   DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
-#   FILES_MATCHING PATTERN "*.h"
-#   PATTERN ".svn" EXCLUDE
-# )
-
-## Mark other files for installation (e.g. launch and bag files, etc.)
-# install(FILES
-#   # myfile1
-#   # myfile2
-#   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
-# )
-
-#############
-## Testing ##
-#############
-
-## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_curc_ardrone.cpp)
-# if(TARGET ${PROJECT_NAME}-test)
-#   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
-# endif()
-
-## Add folders to be run by python nosetests
-# catkin_add_nosetests(test)
+add_executable(curc_gui ${GUI_SOURCE_FILES} ${GUI_HEADER_FILES})
+target_link_libraries(curc_gui ${catkin_LIBRARIES})
