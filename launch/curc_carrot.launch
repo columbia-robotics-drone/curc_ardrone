@@ -1,0 +1,6 @@
+<launch>
+	<node name="stateestimation" pkg="curc_carrot" type="stateestimation">
+	</node>
+	<node name="autopilot" pkg="curc_carrot" type="autopilot">
+	</node>
+</launch>
