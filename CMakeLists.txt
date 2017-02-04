@@ -103,7 +103,7 @@ generate_dynamic_reconfigure_options(
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES curc_ardrone
-	CATKIN_DEPENDS message_runtime std_msgs ardrone_autonomy)
+	CATKIN_DEPENDS message_runtime std_msgs ardrone_autonomy
 #  DEPENDS system_lib
 )
 
@@ -140,13 +140,13 @@ target_link_libraries(tracker ${catkin_LIBRARIES})
 
 # ---------------- path_planner ----------------
 set(PATH_PLANNER_SOURCE_FILES
-	src/tracker/main_path_planner.cpp
+	src/path_planner/main_path_planner.cpp
 )
 
 set(PATH_PLANNER_HEADER_FILES
 )
 
-add_executable(tracker ${PATH_PLANNER_SOURCE_FILES} ${PATH_PLANNER_HEADER_FILES})
+add_executable(path_planner ${PATH_PLANNER_SOURCE_FILES} ${PATH_PLANNER_HEADER_FILES})
 target_link_libraries(path_planner ${catkin_LIBRARIES})
 
 
@@ -168,6 +168,18 @@ set(AUTOPILOT_HEADER_FILES
 	src/autopilot/KI/KIProcedure.h
 )
 
+# set required libs and headers
+include_directories(
+  ${CMAKE_BINARY_DIR}/thirdparty/src/thirdparty/TooN/include 
+  ${CMAKE_BINARY_DIR}/thirdparty/src/thirdparty/libcvd/include 
+  ${CMAKE_BINARY_DIR}/thirdparty/src/thirdparty/gvars3/include 
+)  
+
+link_directories(
+  ${CMAKE_BINARY_DIR}/thirdparty/src/thirdparty/libcvd/lib 
+  ${CMAKE_BINARY_DIR}/thirdparty/src/thirdparty/gvars3/lib 
+)
+
 add_executable(drone_autopilot ${AUTOPILOT_SOURCE_FILES} ${AUTOPILOT_HEADER_FILES})
 target_link_libraries(drone_autopilot ${catkin_LIBRARIES})
 add_dependencies(drone_autopilot thirdparty ${PROJECT_NAME}_gencpp ${PROJECT_NAME}_gencfg)
@@ -182,7 +194,6 @@ set(GUI_HEADER_FILES
 
 add_executable(gui ${GUI_SOURCE_FILES} ${GUI_HEADER_FILES})
 target_link_libraries(gui ${catkin_LIBRARIES})
-add_dependencies(gui)
 
 #############
 ## Install ##
