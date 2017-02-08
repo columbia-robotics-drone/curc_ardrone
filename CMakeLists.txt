@@ -56,7 +56,11 @@ ExternalProject_Add(thirdparty
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
 ## Generate messages in the 'msg' folder
-add_message_files(FILES filter_state.msg)
+add_message_files(
+	FILES
+	filter_state.msg
+	bounding_box.msg
+)
 
 ## Generate services in the 'srv' folder
 add_service_files(
@@ -141,9 +145,11 @@ target_link_libraries(curc_tracker ${catkin_LIBRARIES})
 # ---------------- path_planner ----------------
 set(PATH_PLANNER_SOURCE_FILES
 	src/path_planner/main_path_planner.cpp
+	src/path_planner/PathPlannerNode.cpp
 )
 
 set(PATH_PLANNER_HEADER_FILES
+	src/path_planner/PathPlannerNode.h
 )
 
 add_executable(curc_path_planner ${PATH_PLANNER_SOURCE_FILES} ${PATH_PLANNER_HEADER_FILES})
