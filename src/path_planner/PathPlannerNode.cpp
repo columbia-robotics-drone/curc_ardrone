@@ -1,6 +1,5 @@
 #include "PathPlannerNode.h"
 #include "std_msgs/String.h"
-#include <math.h>
 #include <ros/ros.h>
 
 using namespace std;
@@ -60,7 +59,6 @@ struct ErrStruct *PathPlannerNode::calculateError(const curc_ardrone::bounding_b
 }
 
 
-
 void PathPlannerNode::bboxCb(const curc_ardrone::bounding_box bbox)
 {
 	cout << "bboxCb" << endl;
@@ -74,7 +72,7 @@ void PathPlannerNode::bboxCb(const curc_ardrone::bounding_box bbox)
 
 	// use error to control autopilot
 
-}
+
 
 void PathPlannerNode::publishCommand(string c) 
 {
