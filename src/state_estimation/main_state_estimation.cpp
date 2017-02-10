@@ -2,7 +2,7 @@
 
 int main(int argc, char **argv)
 {
-	ros::init(argc, argv, "state_estimation");
+	ros::init(argc, argv, "curc_state_estimation");
 	
 	ROS_INFO("Started curc_ardrone state_estimation node.");
 

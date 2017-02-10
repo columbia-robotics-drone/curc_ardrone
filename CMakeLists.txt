@@ -200,3 +200,7 @@ set(GUI_HEADER_FILES
 
 add_executable(curc_gui ${GUI_SOURCE_FILES} ${GUI_HEADER_FILES})
 target_link_libraries(curc_gui ${catkin_LIBRARIES})
+
+# ---------------- test ----------------
+add_executable(curc_bbox_generator src/test/path_planning/bbox_generator.cpp)
+target_link_libraries(curc_bbox_generator ${catkin_LIBRARIES})
