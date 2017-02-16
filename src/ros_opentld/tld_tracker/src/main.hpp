@@ -30,7 +30,7 @@
 * TRACKER_INIT
 * TRACKING
 * STOPPED
-*  
+*
 */
 
 #ifndef MAIN_HPP_
@@ -69,7 +69,7 @@ class Main
 			np.param("exportModelAfterRun", exportModelAfterRun, false);
 			np.param("modelImportFile", modelImportFile, std::string("model"));
 			np.param("modelExportFile", modelExportFile, std::string("model"));
-			np.param("cascadePath", face_cascade_path, 
+			np.param("cascadePath", face_cascade_path,
 					std::string("haarcascade_frontalface_alt.xml"));
 
 			np.param("x", target_bb.x, 100);
@@ -79,15 +79,15 @@ class Main
 			np.param("correctBB", correctBB, false);
 
 			pub1 = n.advertise<tld_msgs::BoundingBox>(
-                    "tld_tracked_object", 1000, true);
+                    "curc_ardrone/bounding_box/", 1000, true);
 			pub2 = n.advertise<std_msgs::Float32>(
-                    "tld_fps", 1000, true);
+                    "curc_ardone/tld_fps", 1000, true); //TODO determine usage
 			sub1 = n.subscribe(
-                    "image", 1000, &Main::imageReceivedCB, this);
+                    "image", 1000, &Main::imageReceivedCB, this); // TODO determine proper topic
 			sub2 = n.subscribe(
-                    "bounding_box", 1000, &Main::targetReceivedCB, this);
+                    "curc_ardrone/bounding_box/", 1000, &Main::targetReceivedCB, this);
 			sub3 = n.subscribe(
-                    "cmds", 1000, &Main::cmdReceivedCB, this);
+                    "cmds", 1000, &Main::cmdReceivedCB, this); //TODO determine proper topic
 
 			semaphore.lock();
 		}
@@ -100,7 +100,7 @@ class Main
 		void process();
 
 	private:
-		tld::TLD * tld; 
+		tld::TLD * tld;
 		bool showOutput;
 		bool exportModelAfterRun;
 		bool loadModel;
@@ -177,7 +177,7 @@ class Main
 		void reset();
 
         /*!
-        * \brief This function allows to automatically initialize the target 
+        * \brief This function allows to automatically initialize the target
         * using the OpenCV Haar-cascade detector.
         */
 		cv::Rect faceDetection();

@@ -46,7 +46,7 @@
 #include <QtCore/QDebug>
 
 class BaseFrameGraphicsView : public QGraphicsView
-{   
+{
 	Q_OBJECT
 
 	public:
