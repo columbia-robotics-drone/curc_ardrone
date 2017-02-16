@@ -1,3 +1,4 @@
+<!--TODO: add our own GUI elements-->
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>tum_ardrone_guiClass</class>
@@ -107,6 +108,7 @@
     <property name="text">
      <string>Reset</string>
     </property>
+  <!-- TODO: Buttons for object tracking go probably around here-->
    </widget>
    <widget class="QPushButton" name="buttonToggleState">
     <property name="geometry">
@@ -496,6 +498,7 @@
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
  <connections>
+   <!-- TODO: Add appropriate response/trigger functions for GUI elements-->
   <connection>
    <sender>buttonLand</sender>
    <signal>clicked()</signal>
@@ -754,6 +757,7 @@
   </connection>
  </connections>
  <slots>
+  <!-- TODO: add slot here for obj tracking buttons-->
   <slot>SendClicked()</slot>
   <slot>ClearClicked()</slot>
   <slot>LandClicked()</slot>
